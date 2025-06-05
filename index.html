@@ -1,122 +1,94 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>❤PULY💓STAR❤ Login</title>
+  <title></title>PULY STAR Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
-  font-family: 'Pacifico', cursive;
-  color: #fff;
-  text-align: center;
-  overflow: hidden;
-}
-
-.login-box {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 30px;
-  margin: 80px auto;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 0 20px #ff69b4;
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #ff69b4;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-input[type="text"], input[type="file"], input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  outline: none;
-}
-
-button {
-  background: #ff69b4;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background: #ff1493;
-}
-
-.top-bar {
-  position: fixed;
-  top: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-  align-items: center;
-}
-
-.top-bar img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: black;
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      color: #ff69b4;
+      animation: glow 1.5s infinite alternate;
+      margin-bottom: 30px;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #fff, 0 0 10px #ff69b4; }
+      to   { text-shadow: 0 0 20px #ff69b4, 0 0 30px #ff1493; }
+    }
+    form {
+      background: #111;
+      padding: 30px;
+      border-radius: 20px;
+      border: 2px solid #333;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 320px;
+    }
+    input {
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #222;
+      color: #fff;
+      font-size: 16px;
+    }
+    input::placeholder {
+      color: #888;
+    }
+    button {
+      background: #ff1493;
+      border: none;
+      padding: 10px;
+      color: white;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #ff69b4;
+    }
   </style>
 </head>
 <body>
-  <div class="top-bar">
-    <div class="profile-pic">
-      <input type="file" accept="image/*" id="user-pic" onchange="showUserPic(event)" style="display:none">
-      <img id="profile" src="https://via.placeholder.com/50" onclick="document.getElementById('user-pic').click()">
-    </div>
-    <div class="owner-logo">
-      <img src="https://yt3.googleusercontent.com/BCD6wsUKh9xKG8XPxBO6K7l0W9xpQmXQ7TeI_zPr2n4-2J2wtm03-C8WqNM6l73r8zeBiu4Dtw=s160-c-k-c0x00ffffff-no-rj" onclick="window.open('https://youtube.com/@delhibloger09', '_blank')">
-    </div>
-  </div>  <div class="login-box">
-    <h1>❤PULY💓STAR❤</h1>
-    <form onsubmit="return validateLogin()">
-      <input type="text" id="username" placeholder="अपना नाम DALO😁" required>
-      <input type="file" accept="image/*" required>
-      <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">कीजिए</button>
-    </form>
-  </div>  <script>
-    function validateLogin() {
-      const password = document.getElementById('password').value;
-      if (password === 'PULY STAR') {
-        alert('Welcome to ❤PULY💓STAR❤!');
-        // Redirect or show next page
-        return true;
-      } else {
-        alert('Galat Password!');
-        return false;
-      }
-    }
+  <h1>🛩PULY💓STAR🛩</h1>
+  <form onsubmit="return loginUser()">
+    <input type="text" id="name" placeholder="Enter Your Name" required>
+    <input type="file" id="photo" accept="image/*" required>
+    <input type="text" id="mobile" placeholder="Enter Mobile Number" required>
+    <input type="password" id="password" placeholder="Enter Password " required>
+    <button type="submit">Login</button>
+  </form>
 
-    function showUserPic(event) {
-      const reader = new FileReader();
-      reader.onload = function(){
-        const output = document.getElementById('profile');
-        output.src = reader.result;
-      };
-      reader.readAsDataURL(event.target.files[0]);
+  <script>
+    function loginUser() {
+      const name = document.getElementById("name").value.trim();
+      const photo = document.getElementById("photo").files[0];
+      const mobile = document.getElementById("mobile").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (name && photo && mobile.length === 10 && password === "PULY STAR") {
+        localStorage.setItem("userName", name);
+        localStorage.setItem("userMobile", mobile);
+        localStorage.setItem("userPhoto", URL.createObjectURL(photo));
+        window.location.href = "home.html";
+      } else {
+        alert("Wrong Details! Please check and try again.");
+      }
+      return false;
     }
-  </script></body>
+  </script>
+</body>
 </html>
